@@ -72,6 +72,8 @@ public:
 
     static DataCheckState getDataCheckState(const std::string &app_name,
                                                        DataCheckStage stage);
+
+    static bool isSwssWarmStartEnable(void);
 private:
     std::shared_ptr<swss::DBConnector>   m_stateDb;
     std::shared_ptr<swss::DBConnector>   m_cfgDb;

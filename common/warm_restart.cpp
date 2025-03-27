@@ -288,4 +288,19 @@ WarmStart::DataCheckState WarmStart::getDataCheckState(const std::string &app_na
     return state;
 }
 
+bool WarmStart::isSwssWarmStartEnable(void)
+{
+    auto& warmStart = getInstance();
+
+    std::string value;
+
+    // Check swss warm-restart configuration
+    warmStart.m_stateWarmRestartEnableTable->hget("swss", "enable", value);
+    if (value == "true")
+    {
+        return true;
+    }
+
+    return false;
+}
 }
